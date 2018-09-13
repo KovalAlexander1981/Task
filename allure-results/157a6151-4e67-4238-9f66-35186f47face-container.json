@@ -1,0 +1,1 @@
+{"uuid":"157a6151-4e67-4238-9f66-35186f47face","name":"Command line suite","start":1536830498147,"stop":1536830505908,"children":["ec848fde-9e25-4f69-8cab-74d091765025"],"afters":[{"name":"tearDownSuite","status":"passed","stage":"finished","description":"","start":1536830505522,"stop":1536830505905}]}
