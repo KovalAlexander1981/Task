@@ -9,13 +9,17 @@ public class HomePageHelper extends HomePage {
         return super.createNewList(listName); }
 
 
-    public void  deleteList(){ }
-
-
+    public void  deleteList() {
+        super.deleteList();
+    }
 
     public int listArray(){
         return super.listArray();
+    }
 
+
+    public void listRename(String newNameList){
+        super.listRename(newNameList);
     }
 
 }

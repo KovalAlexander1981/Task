@@ -3,7 +3,6 @@ package Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
-
 import java.util.List;
 
 public class HomePage extends BasePage{
@@ -27,31 +26,29 @@ public class HomePage extends BasePage{
 	@FindBy(id = "com.slava.buylist:id/str1")
 	private WebElement listInfo;
 
-	@FindBy(id = "com.slava.buylist:id/imageView1")
-	private WebElement listDelete;
+    @FindBys(@FindBy(id = "com.slava.buylist:id/imageView1"))
+    private List<WebElement> listDelete;
 
 	@FindBy(id = "android:id/button1")
-	private WebElement deleteYes;
+	private WebElement Yes;
 
     @FindBy(id = "android:id/button2")
-    private WebElement deleteNo;
+    private WebElement No;
 
 	@FindBys(@FindBy(id = "com.slava.buylist:id/title"))
     private List<WebElement> listLists;
 
-
-	//@FindBy(id = "com.slava.buylist:id/title")
-	//public WebElement listLists;
-
-
-public int listArray(){
-    return listLists.size();
-}
+    @FindBy(className = "android.widget.EditText")
+    private WebElement listChangeNameField;
 
 
 
 
 
+
+    public int listArray(){
+        return listLists.size();
+    }
 
     public CreateList createNewList(String listName){
         textField.sendKeys(listName);
@@ -59,10 +56,21 @@ public int listArray(){
         return new CreateList();
     }
 
-    public void  deleteList(){
-        listDelete.click();
-        deleteYes.click();
-
+    public void  deleteList()  {
+        listDelete.get(1).click();
+        Yes.click();
     }
+
+    public void listRename(String newNameList){
+        btnEdit.click();
+        listChangeNameField.clear();
+        listChangeNameField.sendKeys(newNameList);
+        Yes.click();
+    }
+
+
+
+
+
 
 }
