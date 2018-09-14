@@ -50,18 +50,18 @@ public class HomePage extends BasePage{
         return listLists.size();
     }
 
-    public CreateList createNewList(String listName){
+    protected CreateList createNewList(String listName){
         textField.sendKeys(listName);
         btnAdd.click();
         return new CreateList();
     }
 
-    public void  deleteList()  {
+    protected void  deleteList()  {
         listDelete.get(1).click();
         Yes.click();
     }
 
-    public void listRename(String newNameList){
+    protected void listRename(String newNameList){
         btnEdit.click();
         listChangeNameField.clear();
         listChangeNameField.sendKeys(newNameList);
