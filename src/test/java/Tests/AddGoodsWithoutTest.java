@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
-public class AddGoodsWithout extends BaseTest {
+public class AddGoodsWithoutTest extends BaseTest {
 
     @Test(priority = 6, description = "Add in the list goods without comment, price, amount, category")
     public void test6 ()  {

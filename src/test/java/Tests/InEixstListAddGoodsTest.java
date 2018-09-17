@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class InEixstListAddGoods extends BaseTest {
+public class InEixstListAddGoodsTest extends BaseTest {
 
     @Test(priority = 7, description = "In list that exist add new good")
     public void test7 ()  {

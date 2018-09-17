@@ -3,7 +3,7 @@ package Tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class RemoveListWithGoods extends BaseTest{
+public class RemoveListWithGoodsTest extends BaseTest{
 
     @Test(priority = 5, description = "Delete list with goods")
     public void test5 ()  {
