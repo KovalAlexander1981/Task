@@ -3,8 +3,6 @@ package Tests;
 import Helpers.CommonHeler;
 import Helpers.CreateListHelper;
 import Helpers.HomePageHelper;
-import Pages.CreateList;
-import Pages.HomePage;
 
 public class App {
   public HomePageHelper homePage;

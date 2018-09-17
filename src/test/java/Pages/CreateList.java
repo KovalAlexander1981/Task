@@ -63,6 +63,13 @@ public class CreateList extends BasePage{
         addProduct.click();
         return price_good;
     }
+    protected void addNewproductToList(String goods) {
+        textFieldProductName.sendKeys(goods);
+        addProduct.click();
+    }
+
+
+
     protected int getCheckPrice(){
     return  parseInt(listPrice.getText().replaceAll("[^0-9]+", ""));
 

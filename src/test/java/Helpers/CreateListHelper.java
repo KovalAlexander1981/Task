@@ -16,6 +16,10 @@ public class CreateListHelper extends CreateList {
         return super.addNewproductToList(goods, priceGood, amountGood, tare, comments, category);
     }
 
+    public void addNewproductToList(String goods) {
+        super.addNewproductToList(goods);
+    }
+
 
 }
 

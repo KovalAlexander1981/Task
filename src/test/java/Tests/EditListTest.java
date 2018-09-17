@@ -7,9 +7,10 @@ import java.util.Arrays;
 
 public class EditListTest extends BaseTest {
     @Test(priority = 2, description = "Edit name of the exist list")
-    public void editList() {
+    public void test2() {
         app.homePage.listRename("Johny Depp");
         Assert.assertFalse(Arrays.asList(app.homePage.listArray()).contains( "Johny Depp"));
 
     }
+
 }

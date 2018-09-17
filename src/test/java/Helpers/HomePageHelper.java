@@ -13,14 +13,25 @@ public class HomePageHelper extends HomePage {
         super.deleteList();
     }
 
-    public int listArray(){
-        return super.listArray();
+    public boolean findList(String name){
+        return super.findList(name);
     }
 
 
     public void listRename(String newNameList){
         super.listRename(newNameList);
     }
+
+    public String infoList(){
+
+        return super.infoList();
+    }
+
+    public void openList(String name){
+        super.openList(name);
+
+    }
+
 
 }
 
