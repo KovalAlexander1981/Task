@@ -3,7 +3,6 @@ package Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
 
 import static java.lang.Integer.parseInt;
 
@@ -46,6 +45,8 @@ public class CreateList extends BasePage{
 
 
 
+
+
     protected String getListName(){
         return  listName.getText();
     }
@@ -68,12 +69,22 @@ public class CreateList extends BasePage{
         addProduct.click();
     }
 
-
+    protected String addNewproductToList(String goods, String priceGood) {
+    textFieldProductName.sendKeys(goods);
+        String d = currency.getText();
+        addProduct.click();
+   return d;
+    }
 
     protected int getCheckPrice(){
     return  parseInt(listPrice.getText().replaceAll("[^0-9]+", ""));
 
         }
+
+    protected String getCurrency(){
+        return  listPrice.getText();
+
+    }
 }
 
 

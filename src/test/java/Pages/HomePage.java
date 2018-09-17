@@ -48,6 +48,10 @@ public class HomePage extends BasePage {
     private List<WebElement> xxxxx;
 
 
+	@FindBy(className = "android.widget.LinearLayout")
+	private WebElement settings;
+
+
     public int listArray() {
         return listLists.size();
     }
@@ -95,6 +99,13 @@ public class HomePage extends BasePage {
         }
         return true;
     }
+
+    protected void clickButtonSet(){
+        btnPreferences.click();
+        settings.click();
+    }
+
+
 }
 
 

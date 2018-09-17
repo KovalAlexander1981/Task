@@ -20,6 +20,15 @@ public class CreateListHelper extends CreateList {
         super.addNewproductToList(goods);
     }
 
+    public String addNewproductToList(String goods, String priceGood) {
+
+        return super.addNewproductToList(goods, priceGood);
+    }
+
+    public String getCurrency(){
+        return super.getCurrency();
+
+    }
 
 }
 

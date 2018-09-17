@@ -8,6 +8,7 @@
             <class name="Tests.EditListTest"/>
             <class name="Tests.DeleteListTest"/>
             <class name="Tests.NewListWithProductsTest"/>
+            <class name="Tests.NewListWithProductsTest"/>
         </classes>
     </test>
 </suite>

@@ -31,7 +31,9 @@ public class HomePageHelper extends HomePage {
         super.openList(name);
 
     }
+    public void clickButtonSet() {
+       super.clickButtonSet();
+    }
 
-
-}
+    }
 

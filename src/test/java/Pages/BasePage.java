@@ -2,13 +2,18 @@ package Pages;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 
 public class BasePage {
     protected static AppiumDriver<MobileElement> driver;
@@ -35,4 +40,27 @@ public class BasePage {
     }
 
 
-}
+    public void scroll() {
+
+        Dimension size = driver.manage().window().getSize();
+        int x = (int) (size.width * 0.5);
+        int y = (int) (size.height * 0.6);
+        int endY = (int) (size.height * 0.1);
+
+        // int x    = 434;
+        // int  y    = 1169;
+
+        //  int       endX = 434;
+        //  int endY = 566;
+        new TouchAction(driver)
+                .press(new PointOption().withCoordinates(x, y))
+                .waitAction(new WaitOptions().withDuration(Duration.ofMillis(3000)))
+                .moveTo(new PointOption().withCoordinates(x, endY))
+                .release()
+                .perform();
+
+
+    }
+
+
+    }
