@@ -16,7 +16,7 @@ public class InEixstListAddGoodsTest extends BaseTest {
         int g = app.createList.addNewproductToList("Toys", "44", "5", "pcs.", "Good", "Child products");
         Assert.assertEquals(f+g, app.createList.getCheckPrice());
         app.commonHeler.backButtonTwice();
-        app.homePage.infoList().contains(f + g + "");
+        System.out.println(app.homePage.infoList());
         Assert.assertTrue(app.homePage.infoList().contains(f+g+""));
 
 

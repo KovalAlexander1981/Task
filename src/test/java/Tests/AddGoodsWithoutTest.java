@@ -16,6 +16,7 @@ public class AddGoodsWithoutTest extends BaseTest {
         app.createList.addNewproductToList("Silver");
         app.commonHeler.backButtonTwice();
         Assert.assertFalse(Arrays.asList(app.homePage.listArray()).contains( "Sunday"));
+        app.homePage.deleteList();
 
     }
 
