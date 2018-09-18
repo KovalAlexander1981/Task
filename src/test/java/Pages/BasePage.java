@@ -35,7 +35,7 @@ public class BasePage {
         wait = new WebDriverWait(driver, 10);
     }
 
-    public BasePage () {
+    public BasePage() {
         PageFactory.initElements(driver, this);
     }
 
@@ -47,11 +47,7 @@ public class BasePage {
         int y = (int) (size.height * 0.6);
         int endY = (int) (size.height * 0.1);
 
-        // int x    = 434;
-        // int  y    = 1169;
 
-        //  int       endX = 434;
-        //  int endY = 566;
         new TouchAction(driver)
                 .press(new PointOption().withCoordinates(x, y))
                 .waitAction(new WaitOptions().withDuration(Duration.ofMillis(3000)))
@@ -63,4 +59,4 @@ public class BasePage {
     }
 
 
-    }
+}

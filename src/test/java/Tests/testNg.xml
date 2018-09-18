@@ -13,8 +13,7 @@
             <class name="Tests.InEixstListAddGoodsTest"/>
             <class name="Tests.ChangeCurrencyTest"/>
             <class name="Tests.AddNewCategoryTest"/>
-
-
+            <class name="Tests.RemoveAdditionalInfoOfProductTest"/>
         </classes>
     </test>
 </suite>

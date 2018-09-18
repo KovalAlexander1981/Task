@@ -6,10 +6,10 @@ import org.testng.annotations.Test;
 public class ChangeCurrencyTest extends BaseTest {
 
     @Test(priority = 8, description = "Change currency in the APP")
-    public void test8 ()  {
+    public void test8() {
         String newCurrency = "$";
         app.homePage.createNewList("Asus");
-       app.createList.addNewproductToList("Oil", "23");
+        app.createList.addNewproductToList("Oil", "23");
         app.homePage.clickButtonSet();
         app.settingsPage.setCategory("Currency");
         app.settingsPage.setCurrency(newCurrency);

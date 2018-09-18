@@ -2,6 +2,7 @@ package Helpers;
 
 import Pages.CreateList;
 
+
 public class CreateListHelper extends CreateList {
 
 
@@ -10,9 +11,11 @@ public class CreateListHelper extends CreateList {
     }
 
 
-    public int getCheckPrice(){ return  super.getCheckPrice(); }
+    public int getCheckPrice() {
+        return super.getCheckPrice();
+    }
 
-    public int addNewproductToList(String goods, String priceGood, String amountGood, String tare, String  comments, String category) {
+    public int addNewproductToList(String goods, String priceGood, String amountGood, String tare, String comments, String category) {
         return super.addNewproductToList(goods, priceGood, amountGood, tare, comments, category);
     }
 
@@ -25,11 +28,28 @@ public class CreateListHelper extends CreateList {
         return super.addNewproductToList(goods, priceGood);
     }
 
-    public String getCurrency(){
+    public String getCurrency() {
         return super.getCurrency();
 
     }
 
+    public String getComents() {
+        return super.getComents();
+
+    }
+
+    public String getAmount() {
+        return super.getAmount();
+    }
+
+    public String getPrice() {
+        return super.getPrice();
+
+    }
+
+    public boolean checkElement(String element) {
+        return super.checkElement(element);
+    }
 }
 
 

@@ -3,6 +3,7 @@ package Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
+
 import java.util.List;
 
 public class HomePage extends BasePage {
@@ -48,8 +49,8 @@ public class HomePage extends BasePage {
     private List<WebElement> xxxxx;
 
 
-	@FindBy(className = "android.widget.LinearLayout")
-	private WebElement settings;
+    @FindBy(className = "android.widget.LinearLayout")
+    private WebElement settings;
 
 
     public int listArray() {
@@ -100,7 +101,7 @@ public class HomePage extends BasePage {
         return true;
     }
 
-    protected void clickButtonSet(){
+    protected void clickButtonSet() {
         btnPreferences.click();
         settings.click();
     }

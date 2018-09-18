@@ -1,57 +1,63 @@
 package Pages;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 
 import static java.lang.Integer.parseInt;
 
-public class CreateList extends BasePage{
+public class CreateList extends BasePage {
 
 
     @FindBy(id = "com.slava.buylist:id/editText1")
     private WebElement textGoods;
 
-	@FindBy(id = "com.slava.buylist:id/textView1")
-	private WebElement listName;
+    @FindBy(id = "com.slava.buylist:id/textView1")
+    private WebElement listName;
 
-	@FindBy(id = "com.slava.buylist:id/editText1")
-	private WebElement textFieldProductName;
+    @FindBy(id = "com.slava.buylist:id/editText1")
+    private WebElement textFieldProductName;
 
-	@FindBy(id = "com.slava.buylist:id/editText2")
-	private WebElement numberFieldPrice;
+    @FindBy(id = "com.slava.buylist:id/editText2")
+    private WebElement numberFieldPrice;
 
-	@FindBy(id = "com.slava.buylist:id/value")
-	private WebElement currency;
+    @FindBy(id = "com.slava.buylist:id/value")
+    private WebElement currency;
 
-	@FindBy(id = "com.slava.buylist:id/editText3")
-	private WebElement numberFieldAmount;
+    @FindBy(id = "com.slava.buylist:id/editText3")
+    private WebElement numberFieldAmount;
 
-	@FindBy(id = "com.slava.buylist:id/spinner1")
-	private WebElement dporTare;
+    @FindBy(id = "com.slava.buylist:id/spinner1")
+    private WebElement dporTare;
 
-	@FindBy(id = "com.slava.buylist:id/editText4")
-	private WebElement commentsField;
+    @FindBy(id = "com.slava.buylist:id/editText4")
+    private WebElement commentsField;
 
     @FindBy(id = "com.slava.buylist:id/spinner2")
     private WebElement dropCategory;
 
-	@FindBy(id = "com.slava.buylist:id/button2")
-	private WebElement addProduct;
+    @FindBy(id = "com.slava.buylist:id/button2")
+    private WebElement addProduct;
 
-	@FindBy(id = "com.slava.buylist:id/textView2")
-	private WebElement listPrice;
+    @FindBy(id = "com.slava.buylist:id/textView2")
+    private WebElement listPrice;
+
+    @FindBy(id = "com.slava.buylist:id/str1")
+    private WebElement textCommentary;
+
+    @FindBy(id = "com.slava.buylist:id/TextView01")
+    private WebElement textAmount;
+
+    @FindBy(xpath = "//android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.TextView[4]")
+    private WebElement textPrice;
 
 
-
-
-
-
-    protected String getListName(){
-        return  listName.getText();
+    protected String getListName() {
+        return listName.getText();
     }
 
-    protected int addNewproductToList(String goods, String priceGood, String amountGood, String tare, String  comments, String category) {
+    protected int addNewproductToList(String goods, String priceGood, String amountGood, String tare, String comments, String category) {
         int price_good = parseInt(amountGood) * parseInt(priceGood);
         textFieldProductName.sendKeys(goods);
         numberFieldPrice.sendKeys(priceGood);
@@ -64,27 +70,53 @@ public class CreateList extends BasePage{
         addProduct.click();
         return price_good;
     }
+
     protected void addNewproductToList(String goods) {
         textFieldProductName.sendKeys(goods);
         addProduct.click();
     }
 
     protected String addNewproductToList(String goods, String priceGood) {
-    textFieldProductName.sendKeys(goods);
+        textFieldProductName.sendKeys(goods);
         String d = currency.getText();
+        numberFieldPrice.sendKeys(priceGood);
         addProduct.click();
-   return d;
+        return d;
     }
 
-    protected int getCheckPrice(){
-    return  parseInt(listPrice.getText().replaceAll("[^0-9]+", ""));
+    protected int getCheckPrice() {
+        return parseInt(listPrice.getText().replaceAll("[^0-9]+", ""));
+    }
 
+    protected String getCurrency() {
+        return listPrice.getText();
+    }
+
+    protected String getComents() {
+        return textCommentary.getText();
+
+    }
+
+    protected String getAmount() {
+        return textAmount.getText();
+
+    }
+
+    protected String getPrice() {
+        return textPrice.getText();
+
+    }
+
+    protected boolean checkElement(String element) {
+        boolean b = false;
+        try {
+            driver.findElementByXPath("//*[@text='" + element + "']").click();
+        } catch (NoSuchElementException ex) {
+            b = true;
         }
-
-    protected String getCurrency(){
-        return  listPrice.getText();
-
+        return b;
     }
+
 }
 
 
