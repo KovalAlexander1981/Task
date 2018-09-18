@@ -7,6 +7,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -46,14 +47,21 @@ public class BasePage {
         int x = (int) (size.width * 0.5);
         int y = (int) (size.height * 0.6);
         int endY = (int) (size.height * 0.1);
-
-
-        new TouchAction(driver)
-                .press(new PointOption().withCoordinates(x, y))
-                .waitAction(new WaitOptions().withDuration(Duration.ofMillis(3000)))
-                .moveTo(new PointOption().withCoordinates(x, endY))
-                .release()
-                .perform();
+        try {
+            new TouchAction(driver)
+                    .press(new PointOption().withCoordinates(x, y))
+                    .waitAction(new WaitOptions().withDuration(Duration.ofMillis(2500)))
+                    .moveTo(new PointOption().withCoordinates(x, endY))
+                    .release()
+                    .perform();
+        } catch (NoSuchElementException ex) {
+            new TouchAction(driver)
+                    .press(new PointOption().withCoordinates(x, y))
+                    .waitAction(new WaitOptions().withDuration(Duration.ofMillis(2500)))
+                    .moveTo(new PointOption().withCoordinates(x, endY))
+                    .release()
+                    .perform();
+        }
 
 
     }

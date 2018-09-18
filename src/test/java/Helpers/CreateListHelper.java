@@ -15,8 +15,8 @@ public class CreateListHelper extends CreateList {
         return super.getCheckPrice();
     }
 
-    public int addNewproductToList(String goods, String priceGood, String amountGood, String tare, String comments, String category) {
-        return super.addNewproductToList(goods, priceGood, amountGood, tare, comments, category);
+    public int addNewproductToList(String goods, String priceGood, String amountGood, String Tare, String comments, String category) {
+        return super.addNewproductToList(goods, priceGood, amountGood, Tare, comments, category);
     }
 
     public void addNewproductToList(String goods) {

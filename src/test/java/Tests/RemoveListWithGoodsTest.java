@@ -11,6 +11,7 @@ public class RemoveListWithGoodsTest extends BaseTest {
         int amountBefore = app.homePage.listArray();
         app.homePage.deleteList();
         Assert.assertEquals((amountBefore - 1), app.homePage.listArray());
+        System.out.println("Test5 Delete list with goods");
 
     }
 

@@ -10,6 +10,7 @@ import static java.lang.Integer.parseInt;
 public class CreateList extends BasePage {
 
 
+
     @FindBy(id = "com.slava.buylist:id/editText1")
     private WebElement textGoods;
 
@@ -57,13 +58,13 @@ public class CreateList extends BasePage {
         return listName.getText();
     }
 
-    protected int addNewproductToList(String goods, String priceGood, String amountGood, String tare, String comments, String category) {
+    protected int addNewproductToList(String goods, String priceGood, String amountGood, String Tare, String comments, String category) {
         int price_good = parseInt(amountGood) * parseInt(priceGood);
         textFieldProductName.sendKeys(goods);
         numberFieldPrice.sendKeys(priceGood);
         numberFieldAmount.sendKeys(amountGood);
         dporTare.click();
-        driver.findElementByXPath("//android.widget.CheckedTextView[@text='" + tare + "']").click();
+        driver.findElementByXPath("//android.widget.CheckedTextView[@text='" + Tare + "']").click();
         commentsField.sendKeys(comments);
         dropCategory.click();
         driver.findElementByXPath("//android.widget.CheckedTextView[@text='" + category + "']").click();

@@ -17,6 +17,8 @@ public class AddGoodsWithoutTest extends BaseTest {
         app.commonHeler.backButtonTwice();
         Assert.assertFalse(Arrays.asList(app.homePage.listArray()).contains("Sunday"));
         app.homePage.deleteList();
+        System.out.println("Test6 Add in the list goods without comment, price, amount, category");
+
 
     }
 

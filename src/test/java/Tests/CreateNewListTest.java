@@ -14,6 +14,7 @@ public class CreateNewListTest extends BaseTest {
         app.commonHeler.backButtonTwice();
         Assert.assertTrue(app.homePage.findList("Rambo"));
         Assert.assertEquals((amountBefore + 1), app.homePage.listArray());
+        System.out.println("Test1 Create new empty list");
 
     }
 

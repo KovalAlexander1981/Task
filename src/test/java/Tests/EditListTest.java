@@ -10,6 +10,7 @@ public class EditListTest extends BaseTest {
     public void test2() {
         app.homePage.listRename("Johny Depp");
         Assert.assertFalse(Arrays.asList(app.homePage.listArray()).contains("Johny Depp"));
+        System.out.println("Test2 Edit name of the exist list");
 
     }
 

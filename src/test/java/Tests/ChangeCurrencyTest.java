@@ -18,6 +18,9 @@ public class ChangeCurrencyTest extends BaseTest {
         app.homePage.openList("Asus");
         Assert.assertEquals(newCurrency, app.createList.addNewproductToList("Car", "2").trim());
         Assert.assertTrue(app.createList.getCurrency().contains(newCurrency));
+        app.homePage.deleteList();
+        System.out.println("Test8 Change currency in the APP");
+
 
     }
 
