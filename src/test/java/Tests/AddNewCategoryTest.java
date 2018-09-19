@@ -11,6 +11,7 @@ public class AddNewCategoryTest extends BaseTest {
     @Test(priority = 9, description = "Add new category in the products category list")
     public void test10() {
         app.homePage.clickButtonSet();
+        app.homePage.scroll();
         try {
             app.homePage.scroll();
             app.settingsPage.setCategory("Categories List");

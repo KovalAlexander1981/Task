@@ -47,24 +47,18 @@ public class BasePage {
         int x = (int) (size.width * 0.5);
         int y = (int) (size.height * 0.6);
         int endY = (int) (size.height * 0.1);
-        try {
+
             new TouchAction(driver)
                     .press(new PointOption().withCoordinates(x, y))
                     .waitAction(new WaitOptions().withDuration(Duration.ofMillis(2500)))
                     .moveTo(new PointOption().withCoordinates(x, endY))
                     .release()
                     .perform();
-        } catch (NoSuchElementException ex) {
-            new TouchAction(driver)
-                    .press(new PointOption().withCoordinates(x, y))
-                    .waitAction(new WaitOptions().withDuration(Duration.ofMillis(2500)))
-                    .moveTo(new PointOption().withCoordinates(x, endY))
-                    .release()
-                    .perform();
+
         }
 
 
     }
 
 
-}
+

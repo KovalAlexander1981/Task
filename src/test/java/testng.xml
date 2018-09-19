@@ -1,0 +1,20 @@
+<suite name="Suite" verbose="1">
+
+    <test name="Regression">
+
+        <classes>
+            <class name="Tests.CreateNewListTest"/>
+            <class name="Tests.EditListTest"/>
+            <class name="Tests.DeleteListTest"/>
+            <class name="Tests.NewListWithProductsTest"/>
+            <class name="Tests.RemoveListWithGoodsTest"/>
+            <class name="Tests.AddGoodsWithoutTest"/>
+            <class name="Tests.InEixstListAddGoodsTest"/>
+            <class name="Tests.ChangeCurrencyTest"/>
+            <class name="Tests.RemoveAdditionalInfoOfProductTest"/>
+            <class name="Tests.AddNewCategoryTest"/>
+
+
+        </classes>
+    </test>
+</suite>
