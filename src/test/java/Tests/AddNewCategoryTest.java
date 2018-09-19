@@ -2,6 +2,7 @@ package Tests;
 
 
 import Pages.Tare;
+import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,8 +11,13 @@ public class AddNewCategoryTest extends BaseTest {
     @Test(priority = 9, description = "Add new category in the products category list")
     public void test10() {
         app.homePage.clickButtonSet();
-        app.homePage.scroll();
-        app.settingsPage.setCategory("Categories List");
+        try {
+            app.homePage.scroll();
+            app.settingsPage.setCategory("Categories List");
+        } catch (NoSuchElementException ex) {
+            app.homePage.scroll();
+            app.settingsPage.setCategory("Categories List");
+        }
         boolean d = app.settingsPage.setCategoryGood("Alfa");
         Assert.assertTrue(d);
         app.commonHeler.backButtonTwice();
@@ -21,7 +27,6 @@ public class AddNewCategoryTest extends BaseTest {
         Assert.assertEquals(u, app.createList.getCheckPrice());
         app.commonHeler.backButtonTwice();
         System.out.println("Test10 Add new category in the products category list");
-
 
     }
 }

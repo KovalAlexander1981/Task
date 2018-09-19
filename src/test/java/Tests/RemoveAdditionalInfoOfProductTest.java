@@ -4,9 +4,11 @@ import Pages.Tare;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+
 public class RemoveAdditionalInfoOfProductTest extends BaseTest {
     @Test(priority = 9, description = "Remove from list additional info about products ")
     public void test9() {
+        app.commonHeler.backButton();
         app.homePage.createNewList("Final");
         app.createList.addNewproductToList("Cake", "2", "1", Tare.l.name(), "try", "Dairy produce");
         String a = app.createList.getComents();
