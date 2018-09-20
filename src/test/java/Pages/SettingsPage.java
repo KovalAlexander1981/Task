@@ -32,6 +32,9 @@ public class SettingsPage extends BasePage {
     @FindBys(@FindBy(id = "android:id/title"))
     private List<WebElement> listRemoveSettings;
 
+    @FindBys(@FindBy(id = "android:id/text1"))
+    private List<WebElement> choseOrientation;
+
 
     protected void setCategory(String name) {
         for (int i = 0; i < categorySettings.size(); i++) {
@@ -80,9 +83,22 @@ public class SettingsPage extends BasePage {
                 listRemoveSettings.get(i + 2).click();
             }
         }
-
-
     }
+
+    public void ChangeOrientation(String name) {
+        for (int i = 0; i < listRemoveSettings.size(); i++) {
+            String d = listRemoveSettings.get(i).getText();
+            if ("Orientation".equals(d)) {
+                listRemoveSettings.get(i).click();
+            }
+        }
+        if ("Horizontal".equals(name)) {
+            choseOrientation.get(0).click();
+        } else if ("Vertical".equals(name)){
+            choseOrientation.get(1).click();
+        }
+    }
+
 }
 
 

@@ -13,6 +13,7 @@
             <class name="Tests.ChangeCurrencyTest"/>
             <class name="Tests.RemoveAdditionalInfoOfProductTest"/>
             <class name="Tests.AddNewCategoryTest"/>
+            <class name="Tests.ChangeOrientationTest"/>
 
 
         </classes>

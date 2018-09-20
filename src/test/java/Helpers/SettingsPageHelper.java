@@ -24,6 +24,10 @@ public class SettingsPageHelper extends SettingsPage {
     public void clicklistRemoveSettings() {
         super.clicklistRemoveSettings();
     }
+
+    public void ChangeOrientation(String name) {
+       super.ChangeOrientation(name);
+    }
 }
 
 

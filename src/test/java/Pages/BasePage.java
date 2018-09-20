@@ -7,7 +7,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -56,7 +55,17 @@ public class BasePage {
                     .perform();
 
         }
+    protected void tap(double a, double  b) {
 
+      Dimension size = driver.manage().window().getSize();
+        int x = (int) (size.width * a);
+       int  y = (int) (size.height * b);
+        new TouchAction(driver)
+                .press(new PointOption().withCoordinates(x, y))
+                .waitAction(new WaitOptions().withDuration(Duration.ofMillis(1000)))
+                .release()
+                .perform();
+    }
 
     }
 

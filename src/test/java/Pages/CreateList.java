@@ -54,6 +54,8 @@ public class CreateList extends BasePage {
     private WebElement textPrice;
 
 
+
+
     protected String getListName() {
         return listName.getText();
     }

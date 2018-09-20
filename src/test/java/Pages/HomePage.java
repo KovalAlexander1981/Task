@@ -1,5 +1,8 @@
 package Pages;
 
+import Helpers.CommonHeler;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidKeyCode;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -52,14 +55,24 @@ public class HomePage extends BasePage {
     @FindBy(className = "android.widget.LinearLayout")
     private WebElement settings;
 
+    @FindBy(id = "com.slava.buylist:id/button2")
+    private WebElement exitFromApp;
 
-    public int listArray() {
+    @FindBy(id = "com.slava.buylist:id/button2")
+    private WebElement btnDone;
+
+    protected int listArray() {
         return listLists.size();
     }
 
-    protected CreateList createNewList(String listName) {
+    protected CreateList createNewList(String listName, String orientation) {
         textField.sendKeys(listName);
-        btnAdd.click();
+        if ("Horizontal".equals(orientation)) {
+            tap(0.901, 0.266);
+            tap(0.9, 0.3);
+        } else {
+            btnAdd.click();
+        }
         return new CreateList();
     }
 
@@ -79,7 +92,7 @@ public class HomePage extends BasePage {
         return stringInfoList.getText();
     }
 
-    public void openList(String name) {
+    protected void openList(String name) {
         for (int i = 0; i < xxxxx.size(); i++) {
             String d = xxxxx.get(i).getText();
             if (name.equals(d)) {
@@ -92,7 +105,7 @@ public class HomePage extends BasePage {
 
     }
 
-    public boolean findList(String name) {
+    protected boolean findList(String name) {
         for (int i = 0; i < xxxxx.size(); i++) {
             String d = xxxxx.get(i).getText();
             if (name.equals(d))
@@ -104,6 +117,10 @@ public class HomePage extends BasePage {
     protected void clickButtonSet() {
         btnPreferences.click();
         settings.click();
+    }
+
+    protected void exitfromApp() {
+        exitFromApp.click();
     }
 
 

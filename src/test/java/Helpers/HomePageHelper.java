@@ -5,8 +5,8 @@ import Pages.HomePage;
 
 public class HomePageHelper extends HomePage {
 
-    public CreateList createNewList(String listName) {
-        return super.createNewList(listName);
+    public CreateList createNewList(String listName, String orientation) {
+        return super.createNewList(listName, orientation);
     }
 
 
@@ -35,6 +35,14 @@ public class HomePageHelper extends HomePage {
 
     public void clickButtonSet() {
         super.clickButtonSet();
+    }
+
+    public void exitfromApp(){
+       super.exitfromApp();
+    }
+
+    public int listArray() {
+        return super.listArray();
     }
 
 }

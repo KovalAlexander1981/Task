@@ -10,7 +10,7 @@ public class InEixstListAddGoodsTest extends BaseTest {
     @Test(priority = 7, description = "In list that exist add new good")
     public void test7() {
 
-        app.homePage.createNewList("January");
+        app.homePage.createNewList("January", "");
         int f = app.createList.addNewproductToList("Cat food", "22", "1", Tare.pack.name(), "For my kitty", "Pet products");
         app.commonHeler.backButtonTwice();
         app.homePage.openList("January");
