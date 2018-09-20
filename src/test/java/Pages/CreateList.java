@@ -10,7 +10,6 @@ import static java.lang.Integer.parseInt;
 public class CreateList extends BasePage {
 
 
-
     @FindBy(id = "com.slava.buylist:id/editText1")
     private WebElement textGoods;
 
@@ -53,8 +52,13 @@ public class CreateList extends BasePage {
     @FindBy(xpath = "//android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.TextView[4]")
     private WebElement textPrice;
 
+    @FindBy(id = "com.slava.buylist:id/title")
+    private WebElement getNameGood;
 
 
+    protected String getNameGood() {
+        return getNameGood.getText();
+    }
 
     protected String getListName() {
         return listName.getText();
@@ -74,9 +78,16 @@ public class CreateList extends BasePage {
         return price_good;
     }
 
-    protected void addNewproductToList(String goods) {
+    public void addNewproductToList(String goods, String orientation, int a) {
         textFieldProductName.sendKeys(goods);
-        addProduct.click();
+        if ("Horizontal".equals(orientation)) {
+            for (int i = 0; i < 3; i++) {
+                tap(0.85, 0.19);
+            }
+            addProduct.click();
+        } else {
+            addProduct.click();
+        }
     }
 
     protected String addNewproductToList(String goods, String priceGood) {

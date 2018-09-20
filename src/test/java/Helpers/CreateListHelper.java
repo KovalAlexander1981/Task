@@ -19,8 +19,8 @@ public class CreateListHelper extends CreateList {
         return super.addNewproductToList(goods, priceGood, amountGood, Tare, comments, category);
     }
 
-    public void addNewproductToList(String goods) {
-        super.addNewproductToList(goods);
+    public void addNewproductToList(String goods,  String orientation, int a) {
+        super.addNewproductToList(goods, orientation, a);
     }
 
     public String addNewproductToList(String goods, String priceGood) {
@@ -49,6 +49,10 @@ public class CreateListHelper extends CreateList {
 
     public boolean checkElement(String element) {
         return super.checkElement(element);
+    }
+
+    public String getNameGood() {
+        return super.getNameGood();
     }
 }
 

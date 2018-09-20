@@ -15,7 +15,6 @@
             <class name="Tests.AddNewCategoryTest"/>
             <class name="Tests.ChangeOrientationTest"/>
 
-
         </classes>
     </test>
 </suite>

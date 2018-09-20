@@ -1,6 +1,5 @@
 package Tests;
 
-import Pages.Tare;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,10 +12,9 @@ public class ChangeOrientationTest extends BaseTest {
         app.settingsPage.ChangeOrientation("Horizontal");
         app.commonHeler.backButton();
         app.homePage.createNewList("Wow", "Horizontal");
-
-        int f = app.createList.addNewproductToList("Cat food", "22", "1", Tare.pack.name(), "For my kitty", "Pet products");
-      //  Assert.assertEquals(f, app.createList.getCheckPrice());
-        app.commonHeler.backButtonTwice();
+        app.createList.addNewproductToList("Cat food", "Horizontal", 0);
+        Assert.assertEquals("Wow", app.createList.getListName());
+        Assert.assertEquals("Cat food", app.createList.getNameGood());
         System.out.println("Test11 Change the App orientation");
     }
 }
