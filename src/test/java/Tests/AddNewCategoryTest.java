@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class AddNewCategoryTest extends BaseTest {
     @Test(priority = 9, description = "Add new category in the products category list")
-    public void test10() throws InterruptedException {
+    public void test10(){
         app.homePage.clickButtonSet();
         app.homePage.scroll();
         try {
