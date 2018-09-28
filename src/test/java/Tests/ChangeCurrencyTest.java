@@ -5,23 +5,14 @@ import org.testng.annotations.Test;
 
 public class ChangeCurrencyTest extends BaseTest {
 
-    @Test(priority = 8, description = "Change currency in the APP")
-    public void test8() throws InterruptedException {
+    @Test(description = "Change currency in the APP")
+    public void test9() {
         String newCurrency = "$";
-        app.homePage.createNewList("Asus", "");
-        app.createList.addNewproductToList("Oil", "23");
-        app.homePage.clickButtonSet();
-        app.settingsPage.setCategory("Currency");
-        app.settingsPage.setCurrency(newCurrency);
-        app.commonHeler.backButtonTwice();
-        Assert.assertTrue(app.homePage.infoList().contains(newCurrency));
-        app.homePage.openList("Asus");
-        Assert.assertEquals(newCurrency, app.createList.addNewproductToList("Car", "2").trim());
-        Thread.sleep(1000);
+        app.homePage.createNewList("Asus", "").addNewProductToList("Oil", "23");
+        Assert.assertTrue(app.homePage.clickButtonSet().setCategoryCurrency("Currency", newCurrency).backButtonTwice().infoList().contains(newCurrency));
+        Assert.assertEquals(newCurrency, app.homePage.openList("Asus").addNewProductToList("Car", "2").trim());
         Assert.assertTrue(app.createList.getCurrency().contains(newCurrency));
-        System.out.println("Test8 Change currency in the APP");
-
-
+        app.createList.backButtonTwice().deleteList().deleteList();
+        System.out.println("Test9 Change currency in the APP");
     }
-
 }

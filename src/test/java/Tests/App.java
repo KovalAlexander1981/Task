@@ -1,20 +1,20 @@
 package Tests;
 
-import Helpers.CommonHeler;
-import Helpers.CreateListHelper;
-import Helpers.HomePageHelper;
-import Helpers.SettingsPageHelper;
+import Helpers.Utils;
+import Pages.CreateList;
+import Pages.HomePage;
+import Pages.SettingsPage;
 
 public class App {
-    public HomePageHelper homePage;
-    public CreateListHelper createList;
-    public CommonHeler commonHeler;
-    public SettingsPageHelper settingsPage;
+    public HomePage homePage;
+    public CreateList createList;
+    public Utils utils;
+    public SettingsPage settingsPage;
 
     public App() {
-        homePage = new HomePageHelper();
-        createList = new CreateListHelper();
-        commonHeler = new CommonHeler();
-        settingsPage = new SettingsPageHelper();
+        homePage = new HomePage();
+        createList = new CreateList();
+        utils = new Utils();
+        settingsPage = new SettingsPage();
     }
 }

@@ -1,16 +1,16 @@
 package Tests;
 
 
+import Helpers.Utils;
 import org.testng.annotations.AfterSuite;
 
 
-public class BaseTest {
+public class BaseTest extends Utils {
 
     protected static App app = new App();
 
 
-  //  @AfterSuite
-   // public void tearDownSuite() {
-  //      app.commonHeler.stopApp();
- //   }
+  // @AfterSuite
+  ///    app.utils.stopApp();
+   // }
 }

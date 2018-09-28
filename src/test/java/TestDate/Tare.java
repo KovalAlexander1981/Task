@@ -1,4 +1,4 @@
-package Pages;
+package TestDate;
 
 public enum Tare {
     pcs("pcs."), kg("kg."), pack("pack"), l("l"), g("g"), bottles("bottles"), box("box"), m("m"), sm("sm"), unit("unit");

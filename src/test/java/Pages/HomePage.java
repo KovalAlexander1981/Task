@@ -1,14 +1,15 @@
 package Pages;
 
 
+import Helpers.Utils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 
+import java.util.Arrays;
 import java.util.List;
 
-public class HomePage extends BasePage {
-
+public class HomePage extends Utils {
 
     @FindBy(id = "com.slava.buylist:id/button1")
     private WebElement btnPreferences;
@@ -47,7 +48,7 @@ public class HomePage extends BasePage {
     private WebElement stringInfoList;
 
     @FindBys(@FindBy(id = "com.slava.buylist:id/title"))
-    private List<WebElement> xxxxx;
+    private List<WebElement> listOfList;
 
 
     @FindBy(className = "android.widget.LinearLayout")
@@ -59,11 +60,17 @@ public class HomePage extends BasePage {
     @FindBy(id = "com.slava.buylist:id/button2")
     private WebElement btnDone;
 
-    protected int listArray() {
+
+    public int listArray() {
         return listLists.size();
     }
 
-    protected CreateList createNewList(String listName, String orientation) {
+    public boolean containList(String name) {
+        return  listLists.stream().anyMatch(element -> element.getAttribute("text").matches(name));
+    }
+
+
+    public CreateList createNewList(String listName, String orientation) {
         textField.sendKeys(listName);
         if ("Horizontal".equals(orientation)) {
             tap(0.901, 0.266);
@@ -71,54 +78,37 @@ public class HomePage extends BasePage {
         } else {
             btnAdd.click();
         }
-        return new CreateList();
+        return new  CreateList();
     }
 
-    protected void deleteList() {
+    public HomePage deleteList() {
         listDelete.get(1).click();
         Yes.click();
+        return  new HomePage();
     }
 
-    protected void listRename(String newNameList) {
+    public HomePage listRename(String newNameList) {
         btnEdit.click();
         listChangeNameField.clear();
         listChangeNameField.sendKeys(newNameList);
         Yes.click();
+        return new HomePage();
     }
 
-    protected String infoList() {
+    public String infoList() {
         return stringInfoList.getText();
     }
 
-    protected void openList(String name) {
-        for (int i = 0; i < xxxxx.size(); i++) {
-            String d = xxxxx.get(i).getText();
-            if (name.equals(d)) {
-                xxxxx.get(i).click();
-                break;
-            }
-
-        }
-
-
+    public CreateList openList(String name) {
+        listOfList.stream().filter(item -> item.getText().equals(name)).forEach(item -> item.click());
+        return new CreateList();
     }
 
-    protected boolean findList(String name) {
-        for (int i = 0; i < xxxxx.size(); i++) {
-            String d = xxxxx.get(i).getText();
-            if (name.equals(d))
-                break;
-        }
-        return true;
-    }
 
-    protected void clickButtonSet() {
+    public SettingsPage clickButtonSet() {
         btnPreferences.click();
         settings.click();
-    }
-
-    protected void exitfromApp() {
-        exitFromApp.click();
+        return new SettingsPage();
     }
 
 

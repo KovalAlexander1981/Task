@@ -1,5 +1,6 @@
 package Pages;
 
+import Helpers.Utils;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 import static java.lang.Integer.parseInt;
 
-public class CreateList extends BasePage {
+public class CreateList extends Utils {
 
 
     @FindBy(id = "com.slava.buylist:id/editText1")
@@ -56,29 +57,29 @@ public class CreateList extends BasePage {
     private WebElement getNameGood;
 
 
-    protected String getNameGood() {
+    public String getNameGood() {
         return getNameGood.getText();
     }
 
-    protected String getListName() {
+    public String getListName() {
         return listName.getText();
     }
 
-    protected int addNewproductToList(String goods, String priceGood, String amountGood, String Tare, String comments, String category) {
+    public int addNewProductToList(String goods, String priceGood, String amountGood, String Tare, String comments, String category) {
         int price_good = parseInt(amountGood) * parseInt(priceGood);
         textFieldProductName.sendKeys(goods);
         numberFieldPrice.sendKeys(priceGood);
         numberFieldAmount.sendKeys(amountGood);
         dporTare.click();
-        driver.findElementByXPath("//android.widget.CheckedTextView[@text='" + Tare + "']").click();
+        findElementByXPath(Tare);
         commentsField.sendKeys(comments);
         dropCategory.click();
-        driver.findElementByXPath("//android.widget.CheckedTextView[@text='" + category + "']").click();
+        findElementByXPath(category);
         addProduct.click();
         return price_good;
     }
 
-    public void addNewproductToList(String goods, String orientation, int a) {
+    public CreateList addNewProductToList(String goods, String orientation, int a) {
         textFieldProductName.sendKeys(goods);
         if ("Horizontal".equals(orientation)) {
             for (int i = 0; i < 3; i++) {
@@ -88,9 +89,10 @@ public class CreateList extends BasePage {
         } else {
             addProduct.click();
         }
+        return new CreateList();
     }
 
-    protected String addNewproductToList(String goods, String priceGood) {
+    public String addNewProductToList(String goods, String priceGood) {
         textFieldProductName.sendKeys(goods);
         String d = currency.getText();
         numberFieldPrice.sendKeys(priceGood);
@@ -98,30 +100,27 @@ public class CreateList extends BasePage {
         return d;
     }
 
-    protected int getCheckPrice() {
+    public int getCheckPrice() {
         return parseInt(listPrice.getText().replaceAll("[^0-9]+", ""));
     }
 
-    protected String getCurrency() {
+    public String getCurrency() {
         return listPrice.getText();
     }
 
-    protected String getComents() {
+    public String getComents() {
         return textCommentary.getText();
-
     }
 
-    protected String getAmount() {
+    public String getAmount() {
         return textAmount.getText();
-
     }
 
-    protected String getPrice() {
+    public String getPrice() {
         return textPrice.getText();
-
     }
 
-    protected boolean checkElement(String element) {
+    public boolean checkElement(String element) {
         boolean b = false;
         try {
             driver.findElementByXPath("//*[@text='" + element + "']").click();

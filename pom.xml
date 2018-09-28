@@ -22,7 +22,7 @@
     <dependency>
         <groupId>io.appium</groupId>
         <artifactId>java-client</artifactId>
-        <version>6.0.0-BETA2</version>
+        <version>6.0.0-BETA4</version>
     </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -51,7 +51,7 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>/Users/akoval/IdeaProjects/finalTask/src/test/java/testng.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/java/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
                     <systemProperties>
@@ -76,7 +76,6 @@
                 <version>2.9</version>
                 <configuration>
                     <reportVersion>2.6.0</reportVersion>
-
                 </configuration>
             </plugin>
             <plugin>
