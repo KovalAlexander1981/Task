@@ -3,6 +3,8 @@ package Tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import TestDate.Tare;
+import static Helpers.Utils.*;
+
 
 
 public class RemoveAdditionalInfoOfProductTest extends BaseTest {
@@ -12,11 +14,11 @@ public class RemoveAdditionalInfoOfProductTest extends BaseTest {
         String a = app.createList.getComents();
         String b = app.createList.getAmount();
         String c = app.createList.getPrice();
-        app.homePage.clickButtonSet().clickListRemoveSettings().backButtonTwice().openList("Final");
-        Assert.assertTrue(app.createList.checkElement(a));
-        Assert.assertTrue(app.createList.checkElement(b));
-        Assert.assertTrue(app.createList.checkElement(c));
-        app.utils.backButton();
+        app.homePage.clickButtonSet().clickListRemoveSettings().backButtonTwiceZ().openList("Final");
+        Assert.assertTrue(app.createList.isElementPresent(a));
+        Assert.assertTrue(app.createList.isElementPresent(b));
+        Assert.assertTrue(app.createList.isElementPresent(c));
+        backButton();
         System.out.println("Test8 Remove from list additional info about products ");
 
 

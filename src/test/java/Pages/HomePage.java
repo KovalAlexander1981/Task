@@ -6,10 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 
-import java.util.Arrays;
+import static Helpers.Utils.*;
 import java.util.List;
 
-public class HomePage extends Utils {
+public class HomePage extends BasePage {
 
     @FindBy(id = "com.slava.buylist:id/button1")
     private WebElement btnPreferences;
@@ -61,11 +61,11 @@ public class HomePage extends Utils {
     private WebElement btnDone;
 
 
-    public int listArray() {
+    public int buylists() {
         return listLists.size();
     }
 
-    public boolean containList(String name) {
+    public boolean isContainList(String name) {
         return  listLists.stream().anyMatch(element -> element.getAttribute("text").matches(name));
     }
 
@@ -84,15 +84,15 @@ public class HomePage extends Utils {
     public HomePage deleteList() {
         listDelete.get(1).click();
         Yes.click();
-        return  new HomePage();
+        return  this;
     }
 
-    public HomePage listRename(String newNameList) {
+    public HomePage renameList(String newNameList) {
         btnEdit.click();
         listChangeNameField.clear();
         listChangeNameField.sendKeys(newNameList);
         Yes.click();
-        return new HomePage();
+        return this;
     }
 
     public String infoList() {
@@ -109,6 +109,16 @@ public class HomePage extends Utils {
         btnPreferences.click();
         settings.click();
         return new SettingsPage();
+    }
+
+   public HomePage backButtonTwiceZ(){
+        backButtonTwice();
+        return this;
+    }
+
+    public HomePage backButtonZ(){
+        backButton();
+        return this;
     }
 
 

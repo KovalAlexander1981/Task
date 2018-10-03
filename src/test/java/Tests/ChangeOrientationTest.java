@@ -8,7 +8,7 @@ public class ChangeOrientationTest extends BaseTest {
     @Test(description = "Change the App orientation")
 
     public void test11() {
-        app.homePage.clickButtonSet().ChangeOrientation("Horizontal").backButton();
+        app.homePage.clickButtonSet().ChangeOrientation("Horizontal").backButtonTwiceZ();
         app.homePage.createNewList("Wow", "Horizontal")
         .addNewProductToList("Cat food", "Horizontal", 0);
         Assert.assertEquals("Wow", app.createList.getListName());

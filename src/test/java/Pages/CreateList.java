@@ -1,14 +1,12 @@
 package Pages;
 
-import Helpers.Utils;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-
+import static Helpers.Utils.*;
 import static java.lang.Integer.parseInt;
 
-public class CreateList extends Utils {
+public class CreateList extends BasePage {
 
 
     @FindBy(id = "com.slava.buylist:id/editText1")
@@ -89,7 +87,7 @@ public class CreateList extends Utils {
         } else {
             addProduct.click();
         }
-        return new CreateList();
+        return this;
     }
 
     public String addNewProductToList(String goods, String priceGood) {
@@ -120,7 +118,7 @@ public class CreateList extends Utils {
         return textPrice.getText();
     }
 
-    public boolean checkElement(String element) {
+    public boolean isElementPresent(String element) {
         boolean b = false;
         try {
             driver.findElementByXPath("//*[@text='" + element + "']").click();
@@ -128,6 +126,11 @@ public class CreateList extends Utils {
             b = true;
         }
         return b;
+    }
+
+    public HomePage  backButtonTwiceZ(){
+        backButtonTwice();
+         return new HomePage();
     }
 
 }

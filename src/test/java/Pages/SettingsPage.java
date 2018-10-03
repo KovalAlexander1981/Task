@@ -8,8 +8,11 @@ import org.openqa.selenium.support.FindBys;
 
 import java.util.List;
 
+import static Helpers.Utils.*;
 
-public class SettingsPage extends Utils {
+
+
+public class SettingsPage extends BasePage {
 
     @FindBy(id = "com.slava.buylist:id/button2")
     private WebElement btnAddCategory;
@@ -36,6 +39,14 @@ public class SettingsPage extends Utils {
     private List<WebElement> currencyList;
 
 
+    public HomePage backButtonTwiceZ(){
+        backButtonTwice();
+        return new HomePage(); }
+
+    public HomePage backButtonZ(){
+        backButton();
+        return new HomePage(); }
+
     public SettingsPage clickListRemoveSettings() {
         for (int i = 0; i < listRemoveSettings.size(); i++) {
             String d = listRemoveSettings.get(i).getText();
@@ -45,7 +56,7 @@ public class SettingsPage extends Utils {
                 listRemoveSettings.get(i + 2).click();
             }
         }
-        return new SettingsPage();
+        return this;
     }
 
     public HomePage ChangeOrientation(String name) {
@@ -77,8 +88,10 @@ public class SettingsPage extends Utils {
     public SettingsPage setCategoryCurrency(String category, String option) {
         categorySettings.stream().filter(item -> item.getText().trim().equals(category)).findFirst().get().click();
         currencyList.stream().filter(items -> items.getText().trim().equals(option)).findFirst().get().click();
-        return new SettingsPage();
+        return this;
     }
+
+
 
 }
 

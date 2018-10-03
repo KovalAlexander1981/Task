@@ -1,13 +1,12 @@
 package Tests;
 
 
-import Helpers.Utils;
-import org.testng.annotations.AfterSuite;
+import Pages.AllPages;
 
 
-public class BaseTest extends Utils {
+public class BaseTest  {
 
-    protected static App app = new App();
+    protected static AllPages app = new AllPages();
 
 
   // @AfterSuite

@@ -1,11 +1,11 @@
 package Helpers;
 
+import Drivers.DriverFactory;
 import Pages.HomePage;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
 
-import Pages.BasePage;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.Dimension;
@@ -13,23 +13,23 @@ import org.openqa.selenium.Dimension;
 import java.time.Duration;
 
 
-public class Utils extends BasePage {
+public class Utils  extends DriverFactory {
 
-    public void stopApp() {
+    public static void stopApp() {
         driver.closeApp();
     }
 
-    public HomePage backButtonTwice() {
+    public static HomePage backButtonTwice() {
         ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
         ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
         return new HomePage();
     }
 
-    public void backButton() {
+    public static void backButton() {
         ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
     }
 
-    public void scroll() {
+    public static void scroll() {
 
         Dimension size = driver.manage().window().getSize();
         int x = (int) (size.width * 0.5);
@@ -45,7 +45,7 @@ public class Utils extends BasePage {
 
     }
 
-    public void tap(double a, double b) {
+    public static void tap(double a, double b) {
 
         Dimension size = driver.manage().window().getSize();
         int x = (int) (size.width * a);
@@ -56,7 +56,7 @@ public class Utils extends BasePage {
                 .release()
                 .perform();
     }
-    public void findElementByXPath(String name){
+    public static void findElementByXPath(String name){
         driver.findElementByXPath("//android.widget.CheckedTextView[@text='" + name + "']").click();
     }
 
