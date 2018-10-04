@@ -18,6 +18,5 @@ public class InEixstListAddGoodsTest extends BaseTest {
         backButtonTwice();
         Assert.assertTrue(app.homePage.infoList().contains(f + g + ""));
         app.homePage.deleteList();
-        System.out.println("Test7 In list that exist add new good");
     }
 }

@@ -19,7 +19,6 @@ public class RemoveAdditionalInfoOfProductTest extends BaseTest {
         Assert.assertTrue(app.createList.isElementPresent(b));
         Assert.assertTrue(app.createList.isElementPresent(c));
         backButton();
-        System.out.println("Test8 Remove from list additional info about products ");
 
 
     }

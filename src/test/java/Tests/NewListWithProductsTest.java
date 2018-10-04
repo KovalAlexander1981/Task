@@ -17,7 +17,6 @@ public class NewListWithProductsTest extends BaseTest {
         int d = app.createList.addNewProductToList("Soap", "12", "3", Tare.g.name(), "wash", "Cosmetics, hygiene");
         Assert.assertEquals(f + s + d, app.createList.getCheckPrice());
         backButtonTwice();
-        System.out.println("Test4 Create new list with products");
 
 
     }

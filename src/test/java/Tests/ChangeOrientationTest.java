@@ -13,6 +13,5 @@ public class ChangeOrientationTest extends BaseTest {
         .addNewProductToList("Cat food", "Horizontal", 0);
         Assert.assertEquals("Wow", app.createList.getListName());
         Assert.assertEquals("Cat food", app.createList.getNameGood());
-        System.out.println("Test11 Change the App orientation");
     }
 }

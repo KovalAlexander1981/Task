@@ -9,8 +9,6 @@ public class DeleteListTest extends BaseTest {
     public void test3() {
         int amountBefore = app.homePage.buylists();
         Assert.assertEquals((amountBefore - 1), app.homePage.deleteList().buylists());
-        System.out.println("Test3 Delete empty list");
-
     }
 
 }

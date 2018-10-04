@@ -16,6 +16,7 @@ public  class DriverFactory {
     protected static AppiumDriver<MobileElement> driver;
     protected static WebDriverWait wait;
 
+
        static {
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("deviceName", "Nexus 5");

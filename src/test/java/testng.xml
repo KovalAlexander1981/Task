@@ -4,6 +4,8 @@
     <parameter name="browser" value="Android" />
     <listeners>
         <listener class-name="Helpers.AnnotationTransformer"/>
+        <listener class-name="Helpers.StatusTestsListener"/>
+
     </listeners>
     <test name="Regression">
         <classes>

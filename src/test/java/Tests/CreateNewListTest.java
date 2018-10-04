@@ -12,7 +12,6 @@ public class CreateNewListTest extends BaseTest {
         int amountBefore = app.homePage.buylists();
         Assert.assertTrue(app.homePage.createNewList("Rambo", "").backButtonTwiceZ().isContainList("Rambo"));
         Assert.assertEquals((amountBefore + 1), app.homePage.buylists());
-        System.out.println("Test1 Create new empty list");
     }
 }
 

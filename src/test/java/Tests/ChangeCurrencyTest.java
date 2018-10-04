@@ -12,6 +12,5 @@ public class ChangeCurrencyTest extends BaseTest {
         Assert.assertTrue(app.homePage.clickButtonSet().setCategoryCurrency("Currency", newCurrency).backButtonTwiceZ().infoList().contains(newCurrency));
         Assert.assertTrue(app.homePage.openList("Asus").checkCurrency("Car").contains(newCurrency));
         app.createList.backButtonTwiceZ().deleteList().deleteList();
-        System.out.println("Test9 Change currency in the APP");
     }
 }

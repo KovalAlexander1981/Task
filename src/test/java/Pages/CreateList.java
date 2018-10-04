@@ -99,7 +99,7 @@ public class CreateList extends BasePage {
     public boolean isElementPresent(String element) {
         boolean b = false;
         try {
-      //      driver.findElementByXPath("//*[@text='" + element + "']").click();
+      driver.findElementByXPath("//*[@text='" + element + "']").click();
         } catch (NoSuchElementException ex) {
             b = true;
         }

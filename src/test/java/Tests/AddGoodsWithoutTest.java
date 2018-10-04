@@ -17,7 +17,6 @@ public class AddGoodsWithoutTest extends BaseTest {
                 .backButtonTwiceZ()
                 .isContainList("Sunday"));
         app.homePage.deleteList();
-        System.out.println("Test6 Add in the list goods without comment, price, amount, category");
 
 
     }
