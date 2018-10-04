@@ -16,5 +16,6 @@ public class AddNewCategoryTest extends BaseTest {
                 .createNewList("Victory", "")
                 .addNewProductToList("Cat food", "22", "1", Tare.bottles.name(), "For my kitty", "Alfa"), app.createList.getCheckPrice());
         backButtonTwice().deleteList();
+
         System.out.println("Test10 Add new category in the products category list");}
     }

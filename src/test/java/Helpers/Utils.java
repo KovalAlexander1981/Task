@@ -19,7 +19,7 @@ public class Utils  extends DriverFactory {
         driver.closeApp();
     }
 
-    public static HomePage backButtonTwice() {
+    public static   HomePage backButtonTwice() {
         ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
         ((AndroidDriver) driver).pressKeyCode(AndroidKeyCode.BACK);
         return new HomePage();
@@ -56,7 +56,7 @@ public class Utils  extends DriverFactory {
                 .release()
                 .perform();
     }
-    public static void findElementByXPath(String name){
+    public  static void findElementByXPath(String name){
         driver.findElementByXPath("//android.widget.CheckedTextView[@text='" + name + "']").click();
     }
 

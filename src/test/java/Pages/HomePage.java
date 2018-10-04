@@ -1,7 +1,8 @@
 package Pages;
 
 
-import Helpers.Utils;
+import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -10,6 +11,8 @@ import static Helpers.Utils.*;
 import java.util.List;
 
 public class HomePage extends BasePage {
+
+
 
     @FindBy(id = "com.slava.buylist:id/button1")
     private WebElement btnPreferences;

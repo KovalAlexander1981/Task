@@ -1,11 +1,13 @@
 package Pages;
 
+import Helpers.Utils;
+
 public class AllPages {
 
 
-        public static HomePage homePage;
-        public static  CreateList createList;
-        public static  SettingsPage settingsPage;
+        public  HomePage homePage;
+        public   CreateList createList;
+        public   SettingsPage settingsPage;
 
         public  AllPages() {
             homePage = new HomePage();

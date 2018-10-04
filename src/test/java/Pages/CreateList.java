@@ -63,20 +63,6 @@ public class CreateList extends BasePage {
         return listName.getText();
     }
 
-    public int addNewProductToList(String goods, String priceGood, String amountGood, String Tare, String comments, String category) {
-        int price_good = parseInt(amountGood) * parseInt(priceGood);
-        textFieldProductName.sendKeys(goods);
-        numberFieldPrice.sendKeys(priceGood);
-        numberFieldAmount.sendKeys(amountGood);
-        dporTare.click();
-        findElementByXPath(Tare);
-        commentsField.sendKeys(comments);
-        dropCategory.click();
-        findElementByXPath(category);
-        addProduct.click();
-        return price_good;
-    }
-
     public CreateList addNewProductToList(String goods, String orientation, int a) {
         textFieldProductName.sendKeys(goods);
         if ("Horizontal".equals(orientation)) {
@@ -88,14 +74,6 @@ public class CreateList extends BasePage {
             addProduct.click();
         }
         return this;
-    }
-
-    public String addNewProductToList(String goods, String priceGood) {
-        textFieldProductName.sendKeys(goods);
-        String d = currency.getText();
-        numberFieldPrice.sendKeys(priceGood);
-        addProduct.click();
-        return d;
     }
 
     public int getCheckPrice() {
@@ -121,7 +99,7 @@ public class CreateList extends BasePage {
     public boolean isElementPresent(String element) {
         boolean b = false;
         try {
-            driver.findElementByXPath("//*[@text='" + element + "']").click();
+      //      driver.findElementByXPath("//*[@text='" + element + "']").click();
         } catch (NoSuchElementException ex) {
             b = true;
         }
@@ -132,6 +110,38 @@ public class CreateList extends BasePage {
         backButtonTwice();
          return new HomePage();
     }
+
+
+    public CreateList addNewProductToList(String goods, String priceGood) {
+        textFieldProductName.sendKeys(goods);
+        numberFieldPrice.sendKeys(priceGood);
+        addProduct.click();
+        return this;
+    }
+
+    public String checkCurrency(String goods) {
+        textFieldProductName.sendKeys(goods);
+        String curNow = currency.getText();
+        addProduct.click();
+        return curNow;
+    }
+
+
+
+    public int addNewProductToList(String goods, String priceGood, String amountGood, String Tare, String comments, String category) {
+        int price_good = parseInt(amountGood) * parseInt(priceGood);
+        textFieldProductName.sendKeys(goods);
+        numberFieldPrice.sendKeys(priceGood);
+        numberFieldAmount.sendKeys(amountGood);
+        dporTare.click();
+        findElementByXPath(Tare);
+        commentsField.sendKeys(comments);
+        dropCategory.click();
+        findElementByXPath(category);
+        addProduct.click();
+        return price_good;
+    }
+
 
 }
 
