@@ -2,6 +2,8 @@ package Pages;
 
 
 import Helpers.Utils;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -75,8 +77,12 @@ public class SettingsPage extends BasePage {
     }
 
     public HomePage addNewCategoryGoods(String category, String option) {
-        scroll();
-        categorySettings.stream().filter(item -> item.getText().equals(category)).forEach(item -> item.click());
+       try{
+           scroll();
+        categorySettings.stream().filter(item -> item.getText().equals(category)).forEach(item -> item.click());}
+        catch (WebDriverException e) {
+            scroll();
+            categorySettings.stream().filter(item -> item.getText().equals(category)).forEach(item -> item.click());}
         btnAddCategory.click();
         textNameCategory.sendKeys(option);
         btnOk.click();
