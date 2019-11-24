@@ -30,7 +30,6 @@ public class Utils  extends DriverFactory {
     }
 
     public static void scroll() {
-
         Dimension size = driver.manage().window().getSize();
         int x = (int) (size.width * 0.5);
         int y = (int) (size.height * 0.6);
@@ -46,7 +45,6 @@ public class Utils  extends DriverFactory {
     }
 
     public static void tap(double a, double b) {
-
         Dimension size = driver.manage().window().getSize();
         int x = (int) (size.width * a);
         int y = (int) (size.height * b);

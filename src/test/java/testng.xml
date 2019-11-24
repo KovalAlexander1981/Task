@@ -9,17 +9,7 @@
     </listeners>
     <test name="Regression">
         <classes>
-            <class name="Tests.CreateNewListTest"/>
-            <class name="Tests.EditListTest"/>
-            <class name="Tests.DeleteListTest"/>
-            <class name="Tests.NewListWithProductsTest"/>
-            <class name="Tests.RemoveListWithGoodsTest"/>
-            <class name="Tests.AddGoodsWithoutTest"/>
-            <class name="Tests.InEixstListAddGoodsTest"/>
-            <class name="Tests.RemoveAdditionalInfoOfProductTest"/>
-            <class name="Tests.ChangeCurrencyTest"/>
-            <class name="Tests.AddNewCategoryTest"/>
-            <class name="Tests.ChangeOrientationTest"/>
+            <class name="Tests.CheckChatTest"/>
         </classes>
     </test>
 </suite>

@@ -1,130 +1,80 @@
 package Pages;
 
-
-import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.WebDriver;
+import io.qameta.allure.Description;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 
-import static Helpers.Utils.*;
+import static org.testng.Assert.assertTrue;
+
 import java.util.List;
 
 public class HomePage extends BasePage {
 
+    @FindBy(id = "com.ekoapp.ekos:id/login_username_edittext")
+    private WebElement userNameTextField;
 
+    @FindBy(id = "com.ekoapp.ekos:id/login_password_edittext")
+    private WebElement userPasswordTextField;
 
-    @FindBy(id = "com.slava.buylist:id/button1")
-    private WebElement btnPreferences;
+    @FindBy(id = "com.ekoapp.ekos:id/text")
+    private WebElement regionSelectButton;
 
-    @FindBy(id = "com.slava.buylist:id/editText1")
-    private WebElement textField;
+    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView")
+    List <WebElement> regionsSelect;
 
-    @FindBy(id = "com.slava.buylist:id/button2")
-    private WebElement btnAdd;
+    @FindBy(id = "com.ekoapp.ekos:id/button")
+    private WebElement signInButton;
 
-    @FindBy(id = "com.slava.buylist:id/imageView2")
-    private WebElement btnEdit;
+    @FindBy(id = "com.ekoapp.ekos:id/login_reset_password_textview")
+    private WebElement forgotPasswordLink;
 
-    @FindBy(id = "com.slava.buylist:id/title")
-    private WebElement listName;
+    @FindBy(id = "com.ekoapp.ekos:id/view_onboarding_forward")
+    private WebElement clickNextOnWelcomeWidget;
 
-    @FindBy(id = "com.slava.buylist:id/str1")
-    private WebElement listInfo;
+    @FindBy(id = "com.ekoapp.ekos:id/view_onboarding_dialog_button")
+    private WebElement getStartedButton;
 
-    @FindBys(@FindBy(id = "com.slava.buylist:id/imageView1"))
-    private List<WebElement> listDelete;
+    public final static String EUROPE = "Europe";
+    public final static String SOUTHEAST_ASIA = "Southeast Asia";
+    public final static String NORTH_AMERICA = "North America";
 
-    @FindBy(id = "android:id/button1")
-    private WebElement Yes;
-
-    @FindBy(id = "android:id/button2")
-    private WebElement No;
-
-    @FindBys(@FindBy(id = "com.slava.buylist:id/title"))
-    private List<WebElement> listLists;
-
-    @FindBy(className = "android.widget.EditText")
-    private WebElement listChangeNameField;
-
-    @FindBy(id = "com.slava.buylist:id/str1")
-    private WebElement stringInfoList;
-
-    @FindBys(@FindBy(id = "com.slava.buylist:id/title"))
-    private List<WebElement> listOfList;
-
-
-    @FindBy(className = "android.widget.LinearLayout")
-    private WebElement settings;
-
-    @FindBy(id = "com.slava.buylist:id/button2")
-    private WebElement exitFromApp;
-
-    @FindBy(id = "com.slava.buylist:id/button2")
-    private WebElement btnDone;
-
-
-    public int buylists() {
-        return listLists.size();
+    public HomePage() {
+        checkIsOpened();
     }
 
-    public boolean isContainList(String name) {
-        return  listLists.stream().anyMatch(element -> element.getAttribute("text").matches(name));
+    @Description("Check that page is open")
+    private HomePage checkIsOpened(){
+       assertTrue(forgotPasswordLink.isDisplayed(), "Is open element is not displayed");
+       assertTrue(userNameTextField.isDisplayed(), "Is open element is not displayed");
+       assertTrue(userPasswordTextField.isDisplayed(), "Is open element is not displayed");
+
+        return this;
     }
 
-
-    public CreateList createNewList(String listName, String orientation) {
-        textField.sendKeys(listName);
-        if ("Horizontal".equals(orientation)) {
-            tap(0.901, 0.266);
-            tap(0.9, 0.3);
-        } else {
-            btnAdd.click();
+    @Description("Enter user password {0},  login {1}, region {2}")
+    public HomePage enterLogInUserInformation (String login, String password, String region){
+        userNameTextField.clear();
+        userNameTextField.sendKeys(login);
+        userPasswordTextField.click();
+        userPasswordTextField.sendKeys(password);
+        for(WebElement regionFromList : regionsSelect) {
+            if(regionFromList.getText().equals(region))
+                regionFromList.click();
         }
-        return new  CreateList();
+        return new HomePage();
     }
 
-    public HomePage deleteList() {
-        listDelete.get(1).click();
-        Yes.click();
-        return  this;
+    @Description("Click Sign In button")
+    public ResentPage clickSignInButton () {
+        signInButton.click();
+        while (clickNextOnWelcomeWidget.isDisplayed()){
+            clickNextOnWelcomeWidget.click();
+        }
+        if(getStartedButton.isDisplayed()){
+            getStartedButton.click();
+        }
+        return new ResentPage();
     }
-
-    public HomePage renameList(String newNameList) {
-        btnEdit.click();
-        listChangeNameField.clear();
-        listChangeNameField.sendKeys(newNameList);
-        Yes.click();
-        return this;
-    }
-
-    public String infoList() {
-        return stringInfoList.getText();
-    }
-
-    public CreateList openList(String name) {
-        listOfList.stream().filter(item -> item.getText().equals(name)).forEach(item -> item.click());
-        return new CreateList();
-    }
-
-
-    public SettingsPage clickButtonSet() {
-        btnPreferences.click();
-        settings.click();
-        return new SettingsPage();
-    }
-
-   public HomePage backButtonTwiceZ(){
-        backButtonTwice();
-        return this;
-    }
-
-    public HomePage backButtonZ(){
-        backButton();
-        return this;
-    }
-
-
 }
 
 

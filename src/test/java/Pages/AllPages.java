@@ -1,18 +1,22 @@
 package Pages;
 
-import Helpers.Utils;
 
 public class AllPages {
 
+        public HomePage homePage;
+        public ResentPage resentPage;
+        public NewChatPage newChatPage;
+        public NewGroupChatPage newGroupChatPage;
+        public ActivityPage activityPage;
+        public ChatDetailsPage chatDetailsPage;
 
-        public  HomePage homePage;
-        public   CreateList createList;
-        public   SettingsPage settingsPage;
-
-        public  AllPages() {
+    public  AllPages() {
             homePage = new HomePage();
-            createList = new CreateList();
-            settingsPage = new SettingsPage();
+            resentPage = new ResentPage();
+            newChatPage = new NewChatPage();
+            newGroupChatPage = new NewGroupChatPage();
+            activityPage = new ActivityPage();
+            chatDetailsPage = new ChatDetailsPage();
         }
     }
 

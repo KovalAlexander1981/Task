@@ -9,7 +9,6 @@ public class BaseTest {
 
     protected static AllPages app = new AllPages();
 
-
     @AfterSuite
     public void tearDownSuite() {
         stopApp();
